@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dionlan.hrpayroll.entities.Payment;
 import com.dionlan.hrpayroll.service.PaymentService;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 
 @RestController
 @RequestMapping(value = "/payments")
@@ -17,9 +18,21 @@ public class PaymentResources {
 	@Autowired
 	private PaymentService service;
 	
+	@HystrixCommand(fallbackMethod = "getPaymentAlternative")
 	@GetMapping(value = "/{workerId}/days/{days}")
 	public ResponseEntity<Payment> getPayment(@PathVariable Long workerId, @PathVariable Integer days){
 		Payment paymente = service.getPayment(workerId, days);
 		return ResponseEntity.ok(paymente);
+	}
+	
+	/**
+	 * Método alternativo caso o método principal acima esteja fora do ar para se tornar tolerante a falhas.
+	 * @param workerId
+	 * @param days
+	 * @return
+	 */
+	public ResponseEntity<Payment> getPaymentAlternative(@PathVariable Long workerId, @PathVariable Integer days){
+		Payment payment = new Payment("Brann", 400.0, days);
+		return ResponseEntity.ok(payment);
 	}
 }
