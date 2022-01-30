@@ -23,7 +23,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 	private static final String[] OPERATOR = { "/hr-worker/**" };
 	
 	//rotas autorizadas apenas para o perfil de admin (para acessar qualquer rota do payroll é necessário estar no perfil de ADMIN)
-	private static final String[] ADMIN = { "/hr-payroll/**", "/hr-user/**" };
+	private static final String[] ADMIN = { "/hr-payroll/**", "/hr-user/**", "/actuator/**", "/hr-worker/actuator/**", "/hr-oauth/actuator/**" };
 
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
