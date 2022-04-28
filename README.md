@@ -4,14 +4,14 @@ Desenvolvido a partir do curso do professor Nélio Alves.
 
 Esse projeto contempla as seguintes experiência: 
 
-Feign para requisições de API entre microsserviços
-Ribbon para balanceamento de carga
-Servidor Eureka para registro dos microsserviços
-API Gateway Zuul para roteamento e autorização
-Hystrix para tolerância a falhas
-OAuth e JWT para autenticação e autorização
-Servidor de configuração centralizada com dados em repositório Git
-Geração de containers Docker para os microsserviços e bases de dados
+- Feign para requisições de API entre microsserviços
+- Ribbon para balanceamento de carga
+- Servidor Eureka para registro dos microsserviços
+- API Gateway Zuul para roteamento e autorização
+- Hystrix para tolerância a falhas
+- OAuth e JWT para autenticação e autorização
+- Servidor de configuração centralizada com dados em repositório Git
+- Geração de containers Docker para os microsserviços e bases de dados </p>
 
 ### Arquitetura de Microsserviços
 <img src="https://github.com/dionlan/ms-course/blob/docker/hr-api-gateway-zuul/src/assets/Arquitetura%20-%20Ms-Course%20-%20N%C3%A9lio%20Alves.PNG" alt="Arquitetura de Microsserviços"/>
